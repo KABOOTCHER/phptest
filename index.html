@@ -1,23 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-    <form class="form" method="post" action="/send.php">
-        <div class="form__item">
-            <input class="form__input" type="text" name="name" required>
-            <label class="form__label">Ваше имя</label>
-        </div>
-        <div class="form__item">
-            <input class="form__input" type="text" name="phone" required>
-            <label class="form__label">Номер телефона</label>
-        </div>
-        <input class="form__input btn" type="submit" value="Отправить">
-        <input type="hidden" name="act" value="order">
-    </form>
-</body>
-</html>
+<form method="post" class="form" action="telegram.php">
+    <h2>Заказать обратный звонок</h2>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      class="input"
+      placeholder="Ваше имя"
+      required
+    />
+  
+    <input
+      type="tel"
+      id="phone"
+      name="phone"
+      class="input"
+      placeholder="Номер телефона"
+      required
+    />
+  
+    <input type="submit" value="Отправить" class="btn" />
+  </form>
