@@ -4,10 +4,10 @@ $name = $_POST['name'];
 $phone = $_POST['phone'];
 
 // Ваш API-ключ Telegram бота
-$telegram_api_key = 'YOUR_TELEGRAM_API_KEY';
+$telegram_api_key = '6927799024:AAEwMa2NNEzTlmMF2yqW3rlNY0-XgvmxPBA';
 
 // Чат-идентификатор группы в Telegram, куда будут отправляться уведомления
-$chat_id = 'YOUR_CHAT_ID';
+$chat_id = '-4001898258';
 
 // Сообщение для отправки в группу
 $message = "Новая заявка на обратный звонок:\nИмя: $name\nНомер телефона: $phone";
