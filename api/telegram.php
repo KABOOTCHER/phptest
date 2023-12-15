@@ -1,3 +1,4 @@
+
 <?php
 // Получаем данные из формы
 $name = $_POST['name'];
@@ -13,10 +14,22 @@ $chat_id = '-4001898258';
 $message = "Новая заявка на обратный звонок:\nИмя: $name\nНомер телефона: $phone";
 
 // URL для отправки сообщения в Telegram
-$telegram_url = "https://api.telegram.org/bot$telegram_api_key/sendMessage?chat_id=$chat_id&text=" . urlencode($message);
+$telegram_url = "https://api.telegram.org/bot$telegram_api_key/sendMessage";
+
+// Параметры запроса
+$options = array(
+    'http' => array(
+        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+        'method'  => 'POST',
+        'content' => http_build_query(array('chat_id' => $chat_id, 'text' => $message)),
+    ),
+);
+
+// Создаем контекст потока
+$context  = stream_context_create($options);
 
 // Отправляем запрос к API Telegram
-$response = file_get_contents($telegram_url);
+$response = file_get_contents($telegram_url, false, $context);
 
 // Проверяем результат отправки
 if ($response === false) {
@@ -25,3 +38,5 @@ if ($response === false) {
     echo 'Заявка успешно отправлена.';
 }
 ?>
+```
+
